@@ -16,6 +16,16 @@ const newScheduleAlarmView = {
 const awaitTime = 10;
 
 
+function skipTutorials() {
+    I.waitForVisible(newScheduleAlarmView.tutorial("txtVwAlarmEditRecurrence"), 10)
+    I.click(newScheduleAlarmView.tutorial("txtVwAlarmEditRecurrence"))
+
+    I.click(newScheduleAlarmView.tutorial("scrllVwAlarmEdit"))
+
+    I.click(newScheduleAlarmView.tutorial("txtVwProfileSelect"))
+}
+
+
 function typeRecurrence(recurrence, textTest) {
 
     I.click(newScheduleAlarmView.spinnerRecurrenceAlarm)
@@ -35,18 +45,5 @@ function typeRecurrence(recurrence, textTest) {
     I.fillField(newScheduleAlarmView.inputTextNote, textTest)
 
 }
-
-function skipTutorials() {
-    I.waitForVisible(newScheduleAlarmView.tutorial("txtVwAlarmEditRecurrence"), 10)
-    I.click(newScheduleAlarmView.tutorial("txtVwAlarmEditRecurrence"))
-
-    I.click(newScheduleAlarmView.tutorial("scrllVwAlarmEdit"))
-
-    I.click(newScheduleAlarmView.tutorial("txtVwProfileSelect"))
-}
-
-
-
-
 
 module.exports = newScheduleAlarmView;

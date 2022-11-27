@@ -15,6 +15,7 @@ exports.config = {
     getStartedView: './views/getStarted-view.js',
     scheduledAlarmsView: './views/scheduledAlarms-view.js',
     newScheduleAlarmView: './views/newScheduleAlarm-view.js',
+    offDaysView: './views/offDays-view.js',
   },
   mocha: {},
   bootstrap: null,

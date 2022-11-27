@@ -6,11 +6,14 @@ const assert = require('assert');
 const scheduledAlarmsView = {
     feedbackGotItButton: "#com.amdroidalarmclock.amdroid:id/bttnInfoGotIt",
     titleScheduledAlarms: "#com.amdroidalarmclock.amdroid:id/txtVwExpandedTitle",
+    menuButton: "//*[@class = 'android.widget.ImageButton' and not(@resource-id)]",
+    menuOffDays: "//*[@resource-id='com.amdroidalarmclock.amdroid:id/design_menu_item_text' and @text='Off days']",
     addAlarmButton: "#com.amdroidalarmclock.amdroid:id/fab",
     textAlarmNote: "#com.amdroidalarmclock.amdroid:id/txtVwAlarmNote",
     isLoadScheduleAlarmPage,
     selectAddNewAlarm,
-    checkAddAlarm
+    checkAddAlarm,
+    goToOffDays
 }
 
 const awaitTime = 10;
@@ -35,7 +38,13 @@ async function checkAddAlarm(textTest) {
     const textNote = await I.grabTextFrom(scheduledAlarmsView.textAlarmNote)
 
     assert.equal(textTest, textNote)
+}
 
+function goToOffDays() {
+    I.click(scheduledAlarmsView.menuButton);
+
+    I.waitForVisible(scheduledAlarmsView.menuOffDays, awaitTime);
+    I.click(scheduledAlarmsView.menuOffDays);
 }
 
 
