@@ -7,7 +7,7 @@ const scheduledAlarmsView = {
     feedbackGotItButton: "#com.amdroidalarmclock.amdroid:id/bttnInfoGotIt",
     titleScheduledAlarms: "#com.amdroidalarmclock.amdroid:id/txtVwExpandedTitle",
     addAlarmButton: "#com.amdroidalarmclock.amdroid:id/fab",
-    textAlarmTime: "#com.amdroidalarmclock.amdroid:id/txtVwAlarmTime",
+    textAlarmNote: "#com.amdroidalarmclock.amdroid:id/txtVwAlarmNote",
     isLoadScheduleAlarmPage,
     selectAddNewAlarm,
     checkAddAlarm
@@ -29,12 +29,12 @@ function selectAddNewAlarm() {
     I.click(scheduledAlarmsView.addAlarmButton)
 }
 
-async function checkAddAlarm(timeChosen) {
+async function checkAddAlarm(textTest) {
 
     I.waitForVisible(scheduledAlarmsView.titleScheduledAlarms, awaitTime);
-    const timeScheduled = await I.grabTextFrom(scheduledAlarmsView.textAlarmTime)
+    const textNote = await I.grabTextFrom(scheduledAlarmsView.textAlarmNote)
 
-    assert.equal(timeChosen, timeScheduled)
+    assert.equal(textTest, textNote)
 
 }
 

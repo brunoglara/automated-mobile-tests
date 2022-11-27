@@ -1,6 +1,7 @@
 const { I, getStartedView, scheduledAlarmsView, newScheduleAlarmView } = inject();
 
-
+let typeRecurrence;
+const textTestEntry = "Test note alarm"
 
 
 Given('an user is on the scheduled alarms page', () => {
@@ -15,23 +16,34 @@ When('choice add an new alarm', () => {
 
 When('choice non-recurring alarm', () => {
 
-  I.waitForVisible(newScheduleAlarmView.tutorial("txtVwAlarmEditRecurrence"), 10)
-  I.click(newScheduleAlarmView.tutorial("txtVwAlarmEditRecurrence"))
+  newScheduleAlarmView.skipTutorials();
 
-  I.click(newScheduleAlarmView.tutorial("scrllVwAlarmEdit"))
-
-  I.click(newScheduleAlarmView.tutorial("txtVwProfileSelect"))
-
-  newScheduleAlarmView.typeRecurrence('No repeat')
+  newScheduleAlarmView.typeRecurrence('No repeat', textTestEntry)
 
 });
 
 Then('a non-recurring alarm is scheduled', async () => {
 
-  const timeChosen = await newScheduleAlarmView.returnTime();
 
   I.click(newScheduleAlarmView.saveAlarmButton);
 
-  scheduledAlarmsView.checkAddAlarm(timeChosen)
+  scheduledAlarmsView.checkAddAlarm(textTestEntry)
 
 });
+
+
+When('choice a type of recurrent alarm. type {string}', (type) => {
+  newScheduleAlarmView.skipTutorials();
+
+  newScheduleAlarmView.typeRecurrence(type, textTestEntry)
+
+  typeRecurrence = type
+});
+
+Then('a recurrent alarm is scheduled', async () => {
+
+  I.click(newScheduleAlarmView.saveAlarmButton);
+
+  scheduledAlarmsView.checkAddAlarm(textTestEntry)
+});
+
