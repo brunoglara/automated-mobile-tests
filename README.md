@@ -1,9 +1,3 @@
-# automated-mobile-tests
-
-tests performed on the application Alarm Clock for Heavy Sleepers 5.3.2
-
-Download link APK: https://www.apkmirror.com/apk/smart-alarm-clock-team/alarm-clock-for-heavy-sleepers/alarm-clock-for-heavy-sleepers-5-3-2-release/alarm-clock-for-heavy-sleepers-5-3-2-android-apk-download/
-
 # Automated Tests Mobile
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/brunoglara/automated-mobile-tests?style=for-the-badge)
@@ -35,6 +29,9 @@ This APP is a free alarm clock that has some features like:
  <a href="https://cucumber.io/" target="_blank">
   <img align="center" alt="Cucumber" height="50" width="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cucumber/cucumber-plain-wordmark.svg" />
  </a>
+  <a href="https://appium.io/" target="_blank">
+  <img align="center" alt="Appium" height="50" width="60" src="https://www.svgrepo.com/show/353413/appium.svg" />
+ </a>
 
 </div>
 
@@ -42,3 +39,7 @@ This APP is a free alarm clock that has some features like:
  <br/>
  
 ## Requirements
+ * [Node](https://nodejs.org/en/) v18 installed
+ * [NPM](https://www.npmjs.com/) v8
+ * [Git](https://git-scm.com/)
+ * [Appim Server] (https://github.com/appium/appium-desktop/releases/tag/v1.22.3-4)
